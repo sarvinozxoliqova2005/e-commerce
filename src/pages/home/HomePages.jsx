@@ -69,12 +69,12 @@ const HomePages = () => {
         <div key={el.id}>
           <h1 className="text-2xl font-bold text-orange-500 mb-4 px-4">{el.title}</h1>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 px-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 px-4">
             {products
               .filter((pro) => pro.categoryId === el.id)
               .map((p) => (
-                <div key={p.id} className="bg-white w-full rounded-2xl shadow-2xl border-2 border-white p-3 sm:p-4 flex flex-col hover:scale-105 duration-500">
-                  <img src={p.image} alt={p.title} className="w-full  h-40  object-contain mb-3" />
+                <div key={p.id} className="bg-white w-full rounded-2xl shadow-2xl border-2 max-h-[300px] max-w-[300px] w-full h-full border-white p-3 sm:p-4 flex flex-col hover:scale-105 duration-500">
+                  <img src={p.image} alt={p.title} className="w-full  h-32 sm:h-20 lg:h-36  object-contain mb-3" />
                   <h1 className="font-semibold line-clamp-1">{p.title}</h1>
                   <p className="text-orange-500 font-bold text-lg mt-1">{p.basePrice} $</p>
                   <button className="mt-4 bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition cursor-pointer">
