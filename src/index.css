@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+.active{
+    color: red;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
