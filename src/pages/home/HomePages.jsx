@@ -48,7 +48,7 @@ const HomePages = () => {
             ...products.filter((pro) => pro.categoryId === categoryId),
             ...products.filter((pro) => pro.categoryId === categoryId)
           ].map((pro, index) => (
-            <div key={index} className="snap-start min-w-[70%] sm:min-w-[260px] bg-white rounded-2xl shadow-lg border-2 border-white p-4 flex flex-col hover:scale-105 duration-500">
+            <div key={index} className="snap-start min-w-[100%] sm:min-w-[260px] bg-white rounded-2xl shadow-lg border-2 border-white p-4 flex flex-col hover:scale-105 duration-500">
               <img src={pro.image} alt={pro.title} className="w-full h-40 object-contain mb-3" />
               <h1 className="font-semibold line-clamp-1">{pro.title}</h1>
               <p className="text-orange-500 font-bold text-lg mt-1">{pro.basePrice} $</p>
@@ -69,20 +69,20 @@ const HomePages = () => {
         <div key={el.id}>
           <h1 className="text-2xl font-bold text-orange-500 mb-4 px-4">{el.title}</h1>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 px-4">
-            {products
-              .filter((pro) => pro.categoryId === el.id)
-              .map((p) => (
-                <div key={p.id} className="bg-white w-full rounded-2xl shadow-2xl border-2 max-h-[300px] max-w-[300px] w-full h-full border-white p-3 sm:p-4 flex flex-col hover:scale-105 duration-500">
-                  <img src={p.image} alt={p.title} className="w-full  h-32 sm:h-20 lg:h-36  object-contain mb-3" />
-                  <h1 className="font-semibold line-clamp-1">{p.title}</h1>
-                  <p className="text-orange-500 font-bold text-lg mt-1">{p.basePrice} $</p>
-                  <button className="mt-4 bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition cursor-pointer">
-                    Выбрать
-                  </button>
-                </div>
-              ))}
-          </div>
+         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-3 px-2">
+           {products.filter((pro) => pro.categoryId === el.id) .map((p) => (
+        <div key={p.id} className=" bg-white w-full rounded-2xl shadow-md shadow-black/10 border border-white p-3 sm:p-4 flex flex-col hover:scale-105 duration-300 " >
+        <img src={p.image} alt={p.title} className="w-full h-32 sm:h-28 md:h-32 lg:h-36 object-contain mb-3"/>
+        <h1 className="font-semibold line-clamp-1">{p.title}</h1>
+        <h1 className="font-normal line-clamp-2 text-gray-600">{p.desc}</h1>
+        <p className="text-orange-500 font-bold text-lg mt-1">{p.basePrice} $</p>
+        <button className="w-full mt-3 bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition">
+          Выбрать
+        </button>
+      </div>
+    ))}
+</div>
+
         </div>
       ))}
     </div>
