@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 const useGet = (url) => {
   const [data, setData] = useState([]);
-
+  
   const getData = async () => {
     try {
       const res = await axios.get(

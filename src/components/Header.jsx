@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { SlBasket } from "react-icons/sl";
 import { Link, NavLink } from "react-router-dom";
+import { CardContext } from "../context/CardChange";
 
 const Header = () => {
   const [lang, setLang] = useState("uz");
   const [open, setOpen] = useState(false);
+  const { cart } = useContext(CardContext); // <-- cart
 
   const languages = {
     uz: { home: "Asosiy", menu: "Ro'yxat" },
@@ -20,24 +23,28 @@ const Header = () => {
           <img src="/header.png" alt="logo" className="h-6 sm:h-6" />
           <img src="/pizza.png" alt="pizza" className="h-5 sm:h-5" />
         </Link>
-        <ul className="hidden md:flex items-center gap-6">
-          <li>
-            <NavLink
-              to="/"
-              className="text-lg font-bold transition-colors duration-500 hover:text-orange-500"
-            >
-              {t.home}
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/menus"
-              className="text-lg font-bold transition-colors duration-500 hover:text-orange-500"
-            >
-              {t.menu}
-            </NavLink>
-          </li>
-          <li>
+
+        <div className="hidden md:flex items-center gap-6">
+          <ul className="flex items-center gap-6">
+            <li>
+              <NavLink
+                to="/"
+                className="text-lg font-bold transition-colors duration-500 hover:text-orange-500"
+              >
+                {t.home}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/menus"
+                className="text-lg font-bold transition-colors duration-500 hover:text-orange-500"
+              >
+                {t.menu}
+              </NavLink>
+            </li>
+          </ul>
+
+          <div className="flex items-center gap-4">
             <select
               value={lang}
               onChange={(e) => setLang(e.target.value)}
@@ -48,8 +55,13 @@ const Header = () => {
               <option value="ru">🇷🇺 Русский</option>
               <option value="en">🇬🇧 English</option>
             </select>
-          </li>
-        </ul>
+
+            <div className="bg-orange-500 max-w-[400px] w-full h-[40px] rounded-lg text-white cursor-pointer hover:bg-orange-600 duration-500 px-6 flex items-center justify-center gap-2">
+              <SlBasket />
+              <span>{cart?.length || 0}</span>
+            </div>
+          </div>
+        </div>
 
         <button
           onClick={() => setOpen(!open)}
@@ -57,45 +69,6 @@ const Header = () => {
         >
           ☰
         </button>
-      </div>
-
-      <div
-        className={`md:hidden bg-white shadow-lg overflow-hidden transition-all duration-500 ${
-          open ? "max-h-60 opacity-100 py-4" : "max-h-0 opacity-0 py-0"
-        }`}
-      >
-        <ul className="flex flex-col gap-4 px-5">
-          <li>
-            <NavLink
-              to="/"
-              onClick={() => setOpen(false)}
-              className="text-lg font-bold transition-colors duration-500 hover:text-orange-500"
-            >
-              {t.home}
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/menus"
-              onClick={() => setOpen(false)}
-              className="text-lg font-bold transition-colors duration-500 hover:text-orange-500"
-            >
-              {t.menu}
-            </NavLink>
-          </li>
-          <li>
-            <select
-              value={lang}
-              onChange={(e) => setLang(e.target.value)}
-              className="w-full bg-orange-500 text-white rounded-lg px-3 py-2 cursor-pointer"
-            >
-              <option value="languages">🌐 Languages</option>
-              <option value="uz">🇺🇿 O‘zbekcha</option>
-              <option value="ru">🇷🇺 Русский</option>
-              <option value="en">🇬🇧 English</option>
-            </select>
-          </li>
-        </ul>
       </div>
     </header>
   );
