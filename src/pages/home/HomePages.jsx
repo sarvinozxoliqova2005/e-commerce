@@ -7,7 +7,8 @@ import { VscSend } from "react-icons/vsc";
 const HomePages = () => {
   const { data: categories } = useGet("categories");
   const { data: products } = useGet("products");
-  const [location , setLocation] = useState ("");
+
+
 
   const [categoryId, setCategoryId] = useState(null);
 
@@ -41,7 +42,7 @@ const HomePages = () => {
 
         <div className="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory flex justify-between pb-2 scrollbar-hide">
           {categories.map((el) => (
-            <div key={el.id} onClick={() => setCategoryId(el.id)} className={`snap-start min-w-[120px] h-[100px] sm:min-w-[120px] h-[120px] rounded-xl shadow-md border-2 flex flex-col items-center justify-center gap-2 p-3 sm:p-4 cursor-pointer ${categoryId === el.id ? "" : "bg-white border-white"}`}> {el.icon && <img src={el.icon} alt={el.title} className="w-14 h-14 object-contain" />}
+            <div key={el.id} onClick={() => setCategoryId(el.id)} className={`snap-start min-w-[120px] h-[100px] sm:min-w-[120px] h-[120px] rounded-xl shadow-md bg-white  flex flex-col items-center justify-center gap-2 p-3 sm:p-4 cursor-pointer ${categoryId === el.id ? "shadow-orange-500" : ""}`}> {el.icon && <img src={el.icon} alt={el.title} className="w-14 h-14 object-contain" />}
               <h1 className="text-md font-semibold text-center">{el.title}</h1>
             </div>
           ))}
@@ -61,7 +62,7 @@ const HomePages = () => {
      </section>
 
    <section>
-    <div className="container mx-auto py-[60px] bg-white rounded-xl px-5 flex items-center justify-center md:flex-row flex-col max-[600px]:max-w-[380px] max-[600px]:py-5">
+    <div className="container mx-auto py-[40px] bg-white rounded-xl px-5 flex items-center justify-center md:flex-row flex-col max-[700px]:max-w-[380px] max-[600px]:py-5">
       <div>
         <h1 className="text-[24px] max-[600px]:text-[18px] font-bold">Yuk tashish manzilini tekshiring</h1>
       </div>
@@ -90,7 +91,7 @@ const HomePages = () => {
         <div key={el.id}>
           <h1 className="text-2xl font-bold text-orange-500 mb-4 px-4">{el.title}</h1>
 
-         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-3 px-2">
+         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 px-4">
             {products.filter((pro) => pro.categoryId === el.id) .map((p) => (
              <Card key={p.id} {...p} />
       ))}
@@ -100,10 +101,7 @@ const HomePages = () => {
     </div>
   </div>
    </section>
-
-   </>
-
-   
+   </>   
   );
 };
 

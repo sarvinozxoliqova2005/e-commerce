@@ -49,11 +49,11 @@ const Header = () => {
           <select
             value={lang}
             onChange={(e) => setLang(e.target.value)}
-            className="bg-orange-500 text-white rounded-lg px-6 py-2 text-xs sm:text-sm md:text-base cursor-pointer"
+            className="bg-orange-500 text-white rounded-lg px-3 py-2 text-xs sm:text-sm md:text-base cursor-pointer"
           >
-            <option value="uz">UZ</option>
-            <option value="ru">RU</option>
-            <option value="en">EN</option>
+           <option value="uz">🇺🇿 O‘zbekcha</option>
+           <option value="ru">🇷🇺 Русский</option>
+           <option value="en">🇬🇧 English</option>
           </select>
 
           <div className="bg-orange-500 rounded-lg px-2 sm:px-4 py-1 sm:py-2 text-white flex items-center gap-1 sm:gap-2 text-xs sm:text-sm md:text-base">
