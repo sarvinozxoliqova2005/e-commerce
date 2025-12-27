@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import useGet from "../../hooks/useGet";
 import Card from "../../components/Card";
+import { FaLocationDot } from "react-icons/fa6";
+import { VscSend } from "react-icons/vsc";
 
 const HomePages = () => {
   const { data: categories } = useGet("categories");
   const { data: products } = useGet("products");
+  const [location , setLocation] = useState ("");
 
   const [categoryId, setCategoryId] = useState(null);
 
@@ -56,6 +59,29 @@ const HomePages = () => {
 
       </div>
      </section>
+
+   <section>
+    <div className="container mx-auto py-[60px] bg-white rounded-xl px-5 flex items-center justify-center md:flex-row flex-col max-[600px]:max-w-[380px] max-[600px]:py-5">
+      <div>
+        <h1 className="text-[24px] max-[600px]:text-[18px] font-bold">Yuk tashish manzilini tekshiring</h1>
+      </div>
+    <div className="relative w-full flex items-center gap-2 sm:gap-4 mt-6">
+  <FaLocationDot className="absolute left-3 top-1/2 -translate-y-1/2 text-orange-500 text-lg" />
+
+  <input
+    type="text"
+    placeholder="Manzilni kiriting"
+    className="w-full pl-10 pr-3 text-[20px] max-[600px]:text-[16px] py-2 border-2 border-gray-200 rounded-lg outline-none focus:border-orange-500"
+  />
+<button className="bg-orange-500 text-white rounded-lg px-6 py-2 flex items-center justify-center gap-2">
+  <span className="hidden md:inline">Tekshirish</span>
+  <span className="inline md:hidden text-xl">
+    <VscSend />
+  </span>
+</button>
+</div>
+    </div>
+   </section>
 
    <section className="bg-gray-300">
   <div className="py-[60px]">
