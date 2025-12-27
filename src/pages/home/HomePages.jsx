@@ -69,11 +69,28 @@ const HomePages = () => {
     <div className="relative w-full flex items-center gap-2 sm:gap-4 mt-6">
   <FaLocationDot className="absolute left-3 top-1/2 -translate-y-1/2 text-orange-500 text-lg" />
 
-  <input
+  {/* <input
     type="text"
     placeholder="Manzilni kiriting"
     className="w-full pl-10 pr-3 text-[20px] max-[600px]:text-[16px] py-2 border-2 border-gray-200 rounded-lg outline-none focus:border-orange-500"
-  />
+  /> */}
+
+<select className="w-full pl-10 pr-3 text-[20px] max-[600px]:text-[16px] py-2 border-2 border-gray-200 rounded-lg outline-none focus:border-orange-500">
+  <option value="">Manzilni kiriting</option>
+  <option value="">Bektemir tumani</option>
+  <option value="">Yunusobod tumani</option>
+  <option value="">Chilonzor tumani</option>
+  <option value="">Mirobod tumani</option>
+  <option value="">Yashnobod tumani</option>
+  <option value="">Yakkasaroy tumani</option>
+  <option value="">Sergeli tumani</option>
+  <option value="">Shayxontohur tumani</option>
+  <option value="">Uchtepa tumani</option>
+  <option value="">Olmazor tumani</option>
+  <option value="">Mirzo-Ulug'bek tumani</option>
+  <option value="">Choshtepa tumani</option>
+</select>
+
 <button className="bg-orange-500 text-white rounded-lg px-6 py-2 flex items-center justify-center gap-2">
   <span className="hidden md:inline">Tekshirish</span>
   <span className="inline md:hidden text-xl">

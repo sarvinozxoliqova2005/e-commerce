@@ -21,33 +21,44 @@ const Card = ({ image, title, basePrice, weight, id, badge }) => {
       </div>
 
       {itemInCart ? (
-  <div className="flex items-center justify-between gap-2 mt-3">
+  <div className="flex items-center justify-between  mt-3">
+    
     <button
       onClick={() => removeFromCart(id)}
-      className="bg-orange-500 text-white w-12 py-[10px] rounded-lg font-semibold"
+      className="bg-orange-500 text-white 
+                 w-8 h-8 sm:w-14 sm:h-10 
+                 rounded-lg font-bold text-lg"
     >
       -
     </button>
-    
-    <span className="font-semibold text-orange-500 text-[24px]">
+
+    <span className="font-semibold text-orange-500 
+                      sm:text-lg md:text-xl">
       {itemInCart.quantity}
     </span>
 
     <button
       onClick={() => addToCart(id)}
-      className="bg-orange-500 text-white w-12 py-[10px] rounded-lg font-semibold"
+      className="bg-orange-500 text-white 
+                 w-8 h-8 sm:w-14 sm:h-10 
+                 rounded-lg font-bold text-lg"
     >
       +
     </button>
 
-    <span className="font-bold text-[14px] text-orange-500">
+    <span className="font-bold text-orange-500 
+                     text-xs sm:text-sm md:text-base ml-1">
       {itemInCart.quantity * basePrice} ₽
     </span>
   </div>
 ) : (
   <button
     onClick={() => addToCart(id)}
-    className="flex-1 bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition mt-3"
+    className="w-full bg-orange-500 text-white 
+               py-2 sm:py-2.5 
+               text-sm sm:text-base
+               rounded-lg font-semibold 
+               hover:bg-orange-600 transition mt-3"
   >
     Выбрать
   </button>
