@@ -1,20 +1,23 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Layout from './components/Layout'
-import HomePages from './pages/home/HomePages'
-import MenuPages from './pages/menu/MenuPages'
+// src/App.jsx
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePages from "./pages/home/HomePages";
+import MenuPages from "./pages/menu/MenuPages";
+import CartPage from "./pages/cart/CartPage";
+import Layout from "./components/Layout";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout/>}>
-          <Route path='/' element={<HomePages/>}/>
-          <Route path='menus' element={<MenuPages/>}/>
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  )
-}
+    
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePages />} />
+            <Route path="/menus" element={<MenuPages />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+  );
+};
 
-export default App
+export default App;

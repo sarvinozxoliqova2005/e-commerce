@@ -10,7 +10,7 @@ const Layout = () => {
      <main className='pt-[90px] bg-gray-300 min-h-screen'>
         <Outlet/>
      </main>
-     <Footer/>
+     <Footer/> 
     </>
   )
 }

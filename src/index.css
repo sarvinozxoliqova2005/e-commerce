@@ -4,17 +4,19 @@
     color: red;
 }
 
+.active:hover {
+  color: blue;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }

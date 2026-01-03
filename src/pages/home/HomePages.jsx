@@ -13,13 +13,14 @@ const HomePages = () => {
   const [categoryId, setCategoryId] = useState(null);
 
   const prodRef = useRef(null);
-  const prodItemWidth = 266; 
 
   useEffect(() => {
     if (categories.length > 0 && categoryId === null) {
       setCategoryId(categories[0].id);
     }
   }, [categories, categoryId]);
+
+  const prodItemWidth = 220;
 
   useEffect(() => {
     const prodInterval = setInterval(() => {
@@ -48,51 +49,55 @@ const HomePages = () => {
           ))}
         </div>
 
-        <div ref={prodRef} className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 scrollbar-hide" >
-         {[
-           ...products.filter((pro) => pro.categoryId === categoryId),
-           ...products.filter((pro) => pro.categoryId === categoryId)
-         ].map((pro, index) => (
-           <Card key={`${pro.id}-${index}`} {...pro}/>
-          ))}
-
-        </div>
-
+     <div ref={prodRef} className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 scrollbar-hide">
+  {[
+    ...products.filter((pro) => pro.categoryId === categoryId),
+    ...products.filter((pro) => pro.categoryId === categoryId),
+  ].map((pro, index) => (
+    <div
+      key={`${pro.id}-${index}`}
+      className="flex-shrink-0 snap-start relative bg-white max-w-[200px] h-[200px] w-full rounded-2xl shadow-xl border-2 border-white"
+    >
+      <img
+        src={pro.image}
+        alt={pro.title}
+        className="w-35 h-35 object-cover hover:scale-105 duration-500 rounded-lg flex items-center justify-center mx-auto mt-4 "
+      />
+      <p className="mt-2 absolute bottom-2 left-0 pl-3 Shanda text-center text-[red] font-bold text-lg italic">
+        {pro.basePrice } ₽
+      </p>
+      <h1 className="absolute top-1 right-1  flex items-center justify-center text-xs font-bold italic bg-violet-700 text-white rounded-full w-[60px] h-[20px] ">{pro.badge}</h1>
+    </div>
+  ))}
+</div>
       </div>
      </section>
 
    <section>
     <div className="container mx-auto py-[40px] bg-white rounded-xl px-5 flex items-center justify-center md:flex-row flex-col max-[700px]:max-w-[380px] max-[600px]:py-5">
       <div>
-        <h1 className="text-[24px] max-[600px]:text-[18px] font-bold">Yuk tashish manzilini tekshiring</h1>
+        <h1 className="text-[24px] max-[600px]:text-[18px] font-bold">Проверьте адрес доставки</h1>
       </div>
     <div className="relative w-full flex items-center gap-2 sm:gap-4 mt-6">
   <FaLocationDot className="absolute left-3 top-1/2 -translate-y-1/2 text-orange-500 text-lg" />
 
-  {/* <input
-    type="text"
-    placeholder="Manzilni kiriting"
-    className="w-full pl-10 pr-3 text-[20px] max-[600px]:text-[16px] py-2 border-2 border-gray-200 rounded-lg outline-none focus:border-orange-500"
-  /> */}
-
 <select className="w-full pl-10 pr-3 text-[20px] max-[600px]:text-[16px] py-2 border-2 border-gray-200 rounded-lg outline-none focus:border-orange-500">
-  <option value="">Manzilni kiriting</option>
-  <option value="">Bektemir tumani</option>
-  <option value="">Yunusobod tumani</option>
-  <option value="">Chilonzor tumani</option>
-  <option value="">Mirobod tumani</option>
-  <option value="">Yashnobod tumani</option>
-  <option value="">Yakkasaroy tumani</option>
-  <option value="">Sergeli tumani</option>
-  <option value="">Shayxontohur tumani</option>
-  <option value="">Uchtepa tumani</option>
-  <option value="">Olmazor tumani</option>
-  <option value="">Mirzo-Ulug'bek tumani</option>
-  <option value="">Choshtepa tumani</option>
+  <option value="">Введите адрес</option>
+ <option value="Bektemir">Бектемирский район</option>
+              <option value="Yunusobod">Юнусабадский район</option>
+              <option value="Chilonzor">Чиланзарский район</option>
+              <option value="Mirobod">Мирободский район</option>
+              <option value="Yashnobod">Яшнабадский район</option>
+              <option value="Yakkasaroy">Яккасарайский район</option>
+              <option value="Sergeli">Сергельский район</option>
+              <option value="Shayxontohur">Шайхантахурский район</option>
+              <option value="Uchtepa">Учтепинский район</option>
+              <option value="Olmazor">Алмазарский район</option>
+              <option value="Mirzo-Ulugbek">Мирзо-Улугбекский район</option>
+              <option value="Choshtepa">Чоштепинский район</option>
 </select>
-
 <button className="bg-orange-500 text-white rounded-lg px-6 py-2 flex items-center justify-center gap-2">
-  <span className="hidden md:inline">Tekshirish</span>
+  <span className="hidden md:inline">Проверить</span>
   <span className="inline md:hidden text-xl">
     <VscSend />
   </span>

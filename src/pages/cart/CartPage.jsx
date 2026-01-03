@@ -1,0 +1,117 @@
+import React, { useContext } from "react";
+import { CardContext } from "../../context/CardChange";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { VscSend } from "react-icons/vsc";
+
+const CartPage = () => {
+  const { cart, addToCart, removeFromCart } = useContext(CardContext);
+
+  const totalPrice = cart.reduce(
+    (acc, item) => acc + item.quantity * (item.price || item.basePrice || 0),
+    0
+  );
+
+  if (cart.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-screen w-screen">
+        <img
+          src="https://mir-s3-cdn-cf.behance.net/projects/404/1193a0190120037.Y3JvcCw4OTQsNzAwLDgxLDA.png"
+          alt="Empty cart"
+          className="object-contain w-200 h-96 h-screen max-[600px]:w-130 max-[600px]:h-72"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="container mx-auto p-3 max-w-5xl ">
+
+      <h1 className="text-2xl text-orange-500 font-bold mb-6">Ваш заказ</h1>
+
+      <div className="flex flex-col gap-4">
+        {cart.map(item => (
+          <div
+            key={item.id}
+            className="flex flex-col sm:flex-row items-center sm:items-start justify-between bg-white p-4 rounded-2xl shadow-md gap-4 relative"
+          >
+            <div className="flex gap-4 items-center sm:flex-1 relative">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-24 h-24 object-cover rounded-xl"
+              />
+              <div>
+                <h2 className="font-bold text-lg text-orange-500">{item.title}</h2>
+                <p className="text-gray-500 text-sm line-clamp-2">{item.description}</p>
+              </div>
+
+              {item.badge && (
+                <span className="absolute top-[-10px] left-[-10px] flex items-center justify-center text-xs font-bold italic bg-violet-700 text-white rounded-full w-[60px] h-[20px]">
+                  {item.badge}
+                </span>
+              )}
+            </div>
+
+            <div className="flex items-center gap-3 mt-2 sm:mt-0">
+              <button
+                className="w-10 h-10 bg-orange-500 text-white rounded-lg text-lg font-bold"
+                onClick={() => removeFromCart(item.id)}
+              >
+                -
+              </button>
+              <span className="w-7 h-7 text-center font-bold border-2 border-white shadow-xl">{item.quantity}</span>
+              <button
+                className="w-10 h-10 bg-orange-500 text-white rounded-lg text-lg font-bold"
+                onClick={() => addToCart(item.id)}
+              >
+                +
+              </button>
+              <span className="font-bold text-orange-500">
+                {item.quantity * (item.price || item.basePrice || 0)} ₽
+              </span>
+            </div>
+          </div>
+        ))}
+
+        <section className="bg-white rounded-xl px-5 py-10 flex flex-col md:flex-row items-center gap-6 mt-4">
+          <div>
+            <h1 className="text-[18px] px-4 max-[600px]:text-[18px] font-bold">Проверьте адрес доставки</h1>
+          </div>
+
+          <div className="relative w-full flex items-center gap-2 sm:gap-4 mt-2 md:mt-0 ml-6">
+            <FaMapMarkerAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-orange-500 text-lg" />
+
+            <select className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg outline-none focus:border-orange-500 text-lg">
+              <option value="">Введите адрес</option>
+              <option value="Bektemir">Бектемирский район</option>
+              <option value="Yunusobod">Юнусабадский район</option>
+              <option value="Chilonzor">Чиланзарский район</option>
+              <option value="Mirobod">Мирободский район</option>
+              <option value="Yashnobod">Яшнабадский район</option>
+              <option value="Yakkasaroy">Яккасарайский район</option>
+              <option value="Sergeli">Сергельский район</option>
+              <option value="Shayxontohur">Шайхантахурский район</option>
+              <option value="Uchtepa">Учтепинский район</option>
+              <option value="Olmazor">Алмазарский район</option>
+              <option value="Mirzo-Ulugbek">Мирзо-Улугбекский район</option>
+              <option value="Choshtepa">Чоштепинский район</option>
+            </select>
+
+            <button className="bg-orange-500 text-white rounded-lg px-6 py-2 flex items-center justify-center gap-2">
+              <span className="hidden md:inline">Проверить</span>
+              <span className="inline md:hidden text-xl">
+                <VscSend />
+              </span>
+            </button>
+          </div>
+
+          <div className="mt-6 w-full text-right text-xl text-orange-500 address font-bold">
+            Общая сумма: {totalPrice} ₽
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default CartPage;

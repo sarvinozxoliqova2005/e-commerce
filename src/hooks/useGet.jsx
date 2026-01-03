@@ -16,7 +16,9 @@ const useGet = (url) => {
   };
 
   useEffect(() => {
-    if (url) getData();
+    if (url) {
+      getData()
+    };
   }, [url]);
 
   return { data, refetch: getData };
