@@ -25,16 +25,16 @@ const Card = ({ image, title, basePrice, weight, id, badge }) => {
 
       {itemCart ? (
         <div className="flex items-center justify-between mt-2">
-          <div className="flex items-center gap-1 ">
+          <div className="flex items-center gap-1">
             <button
-              className="w-9 h-9 bg-orange-500 rounded-lg text-lg text-white font-bold"
+              className="w-7 h-7 bg-orange-500 rounded-lg text-lg text-white font-bold"
               onClick={() => removeFromCart(id)}
             >
               -
             </button>
             <span className="w-5 text-center">{itemCart.quantity}</span>
             <button
-              className="w-9 h-9 bg-orange-500 rounded-lg text-lg text-white font-bold"
+              className="w-7 h-7 bg-orange-500 rounded-lg text-lg text-white font-bold"
               onClick={() => addToCart(id)}
             >
               +
