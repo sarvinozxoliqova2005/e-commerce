@@ -24,7 +24,7 @@ const CartPage = () => {
   }
 
   return (
-    <div className="container mx-auto p-3 max-w-5xl ">
+    <div className="container mx-auto p-4 max-w-5xl">
 
       <h1 className="text-2xl text-orange-500 font-bold mb-6">Ваш заказ</h1>
 
