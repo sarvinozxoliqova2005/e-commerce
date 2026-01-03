@@ -32,15 +32,18 @@ const Header = () => {
        <div className="flex items-center gap-2 sm:gap-4">
   <ul className="flex items-center gap-3 sm:gap-6">
     <li>
-      <NavLink to="/" className="font-bold text-xs sm:text-sm md:text-lg hover:text-orange-500">
+      <NavLink to="/" className="font-bold text-xs sm:text-sm md:text-lg ">
         {t.home}
       </NavLink>
     </li>
-    <li>
-      <NavLink to="/menus" className="font-bold text-xs sm:text-sm md:text-lg hover:text-orange-500">
-        {t.menu}
-      </NavLink>
-    </li>
+   <li>
+  <NavLink
+    to="#menu"
+    className="font-bold text-xs sm:text-sm md:text-lg"
+  >
+    {t.menu}
+  </NavLink>
+</li>
   </ul>
 
   <select

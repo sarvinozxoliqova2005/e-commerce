@@ -1,7 +1,6 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePages from "./pages/home/HomePages";
-import MenuPages from "./pages/menu/MenuPages";
 import CartPage from "./pages/cart/CartPage";
 import Layout from "./components/Layout";
 
@@ -12,7 +11,6 @@ const App = () => {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<HomePages />} />
-            <Route path="/menus" element={<MenuPages />} />
             <Route path="/cart" element={<CartPage />} />
           </Route>
         </Routes>

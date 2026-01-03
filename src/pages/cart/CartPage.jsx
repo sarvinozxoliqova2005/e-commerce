@@ -32,13 +32,13 @@ const CartPage = () => {
         {cart.map(item => (
           <div
             key={item.id}
-            className="flex flex-col sm:flex-row items-center sm:items-start justify-between bg-white p-4 rounded-2xl shadow-md gap-4 relative"
+            className="flex flex-col sm:flex-row  sm:items-center justify-between bg-white p-4 rounded-2xl shadow-md gap-4 relative hover:shadow-orange-500"
           >
             <div className="flex gap-4 items-center sm:flex-1 relative">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-24 h-24 object-cover rounded-xl"
+                className="w-24 h-24 object-cover rounded-xl hover:scale-105 duration-500"
               />
               <div>
                 <h2 className="font-bold text-lg text-orange-500">{item.title}</h2>
@@ -54,14 +54,14 @@ const CartPage = () => {
 
             <div className="flex items-center gap-3 mt-2 sm:mt-0">
               <button
-                className="w-10 h-10 bg-orange-500 text-white rounded-lg text-lg font-bold"
+                className="w-10 h-10 bg-orange-500 text-white rounded-lg text-lg font-bold cursor-pointer"
                 onClick={() => removeFromCart(item.id)}
               >
                 -
               </button>
-              <span className="w-7 h-7 text-center font-bold border-2 border-white shadow-xl">{item.quantity}</span>
+              <span className="w-10 h-10 flex items-center justify-center font-bold bg-white rounded-lg shadow-xl cursor-pointer">{item.quantity}</span>
               <button
-                className="w-10 h-10 bg-orange-500 text-white rounded-lg text-lg font-bold"
+                className="w-10 h-10 bg-orange-500 text-white rounded-lg text-lg font-bold cursor-pointer"
                 onClick={() => addToCart(item.id)}
               >
                 +
@@ -79,9 +79,9 @@ const CartPage = () => {
           </div>
 
           <div className="relative w-full flex items-center gap-2 sm:gap-4 mt-2 md:mt-0 ml-6">
-            <FaMapMarkerAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-orange-500 text-lg" />
+            <FaMapMarkerAlt className="absolute left-3 top-5.5 -translate-y-1/2 text-orange-500 text-lg" />
 
-            <select className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg outline-none focus:border-orange-500 text-lg">
+            <select className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg outline-none focus:border-orange-500 text-lg cursor-pointer">
               <option value="">Введите адрес</option>
               <option value="Bektemir">Бектемирский район</option>
               <option value="Yunusobod">Юнусабадский район</option>
@@ -105,7 +105,7 @@ const CartPage = () => {
             </button>
           </div>
 
-          <div className="mt-6 w-full text-right text-xl text-orange-500 address font-bold">
+          <div className="mt-6 w-full text-right text-xl max-[600px]:flex max-[600px]:justify-center text-orange-500 address font-bold">
             Общая сумма: {totalPrice} ₽
           </div>
         </section>
