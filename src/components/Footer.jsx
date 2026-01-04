@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className='container mx-auto py-[30px]'> 
+      <div className='container mx-auto py-[30px] '> 
      <div className='flex justify-between mx-auto max-w-5xl gap-10 max-[700px]:flex-col max-[700px]:gap-10'>
       <div className='flex items-center gap-2 mt-[-90px] max-[700px]:justify-center max-[700px]:mt-0'>
         <img className='h-4 sm:h-5' src="header.png" alt="" />

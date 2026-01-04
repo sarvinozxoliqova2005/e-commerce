@@ -13,13 +13,20 @@ const CartPage = ({ingredients}) => {
 
   if (cart.length === 0) {
     return (
-      <div className="flex items-center justify-center h-screen w-screen">
-        <img
+      <div className=" h-screen w-full pt-[60px]">
+        {/* <img
           src="https://mir-s3-cdn-cf.behance.net/projects/404/1193a0190120037.Y3JvcCw4OTQsNzAwLDgxLDA.png"
           alt="Empty cart"
           className="object-contain w-200 h-96 h-screen max-[600px]:w-130 max-[600px]:h-72"
-        />
-      </div>
+        /> */}
+        <div className="flex  items-center gap-2 justify-center">
+          <h1 className="text-center font-bold text-[32px] max-[600px]:text-[24px]">Извините</h1>
+          <p className="text-[32px] text-red-700">!</p>
+        </div>
+        <h2 className="text-[32px] max-[600px]:text-[22px] font-bold text-center pt-[30px]">Товары не <span className="font-bold text-red-700 ">найдены 😕</span></h2>
+        <h3 className="text-[24px] max-[600px]:text-[18px] text-center mt-3">По вашему запросу не найдено ни одного товара. Пожалуйста, попробуйте снова.</h3>
+        <img className="mx-auto mt-10 w-120 rounded-2xl max-[600px]:w-76" src="https://static.vecteezy.com/system/resources/thumbnails/068/705/309/small/product-not-found-illustration-in-modern-flat-style-ideal-for-ecommerce-apps-websites-or-error-pages-fully-editable-with-soft-color-palette-and-clean-composition-free-vector.jpg" alt="" />
+      </div> 
     );
   }
 
@@ -80,7 +87,7 @@ const CartPage = ({ingredients}) => {
             <h1 className="text-[18px] px-4 max-[600px]:text-[18px] font-bold">Проверьте адрес доставки</h1>
           </div>
 
-          <div className="relative w-full flex items-center gap-2 sm:gap-4 mt-2 md:mt-0 ml-6 max-[600px]:ml-2">
+          <div className="relative w-full flex items-center  gap-2 sm:gap-4 mt-2 md:mt-0 ml-6 max-[600px]:ml-2">
             <FaMapMarkerAlt className="absolute left-3 top-5.5 -translate-y-1/2 text-orange-500 text-lg" />
 
             <select className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg outline-none focus:border-orange-500 text-lg cursor-pointer">
