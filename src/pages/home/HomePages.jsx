@@ -74,7 +74,7 @@ const HomePages = () => {
      </section>
 
    <section>
-    <div className="container mx-auto py-[40px] bg-white rounded-xl px-5 flex items-center justify-center md:flex-row flex-col max-[700px]:max-w-[350px] max-[600px]:py-5">
+    <div className="container mx-auto py-[40px] bg-white rounded-xl px-5 flex items-center justify-center md:flex-row flex-col max-[600px]:max-w-[350px] max-[600px]:py-5">
       <div>
         <h1 className="text-[24px] max-[600px]:text-[18px] font-bold">Проверьте адрес доставки</h1>
       </div>
@@ -113,7 +113,7 @@ const HomePages = () => {
         <div key={el.id}>
           <h1 className="text-2xl font-bold text-orange-500 mb-4 px-4 max-[600px]:pl-9 ">{el.title}</h1>
 
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 px-4 max-[600px]:max-w-[350px] max-[600px]:mx-auto">
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 px-4 max-w-[1400px] mx-auto max-[600px]:max-w-[350px]">
             {products.filter((pro) => pro.categoryId === el.id) .map((p) => (
              <Card key={p.id} {...p} />
       ))}

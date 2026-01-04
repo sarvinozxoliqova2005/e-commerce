@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { CardContext } from "../context/CardChange";
 
-const Card = ({ image, title, basePrice, weight, id, badge }) => {
+const Card = ({ image, title, basePrice, weight, id, badge , ingredients }) => {
   const { addToCart, cart, removeFromCart } = useContext(CardContext);
 
   const itemCart = cart?.find((el) => el.id === id);
 
   return (
-    <div className="snap-start relative min-w-[100%] sm:min-w-[260px] bg-white rounded-2xl shadow-lg border-2 border-white p-4 flex flex-col hover:shadow-orange-500">
+    <div className="snap-start relative min-w-[100%] sm:min-w-[260px] bg-white rounded-2xl shadow-lg border-2 border-white p-4  w-[200px] h-[360px] flex flex-col hover:shadow-orange-500">
       <img src={image} alt={title} className="w-full h-40 object-contain mb-3" />
 
      {badge && (
@@ -16,7 +16,8 @@ const Card = ({ image, title, basePrice, weight, id, badge }) => {
         </span>
       )}
 
-      <h1 className="font-bold line-clamp-1 italic ">{title}</h1>
+      <h1 className="font-bold line-clamp-1 ">{title}</h1>
+      <h1 className="italic text-sm mt-2  ">{ingredients}</h1>
 
       <div className="flex items-center justify-between mt-1">
         <p className="text-orange-500 font-bold text-lg italic">{basePrice} ₽</p>
@@ -27,14 +28,14 @@ const Card = ({ image, title, basePrice, weight, id, badge }) => {
         <div className="flex items-center justify-between mt-2">
           <div className="flex items-center gap-1">
             <button
-              className="w-7 h-7 bg-orange-500 rounded-lg text-lg text-white font-bold"
+              className="w-10 h-10 bg-orange-500 rounded-lg text-lg text-white font-bold"
               onClick={() => removeFromCart(id)}
             >
               -
             </button>
-            <span className="w-5 text-center">{itemCart.quantity}</span>
+            <span className="w-10 text-center">{itemCart.quantity}</span>
             <button
-              className="w-7 h-7 bg-orange-500 rounded-lg text-lg text-white font-bold"
+              className="w-10 h-10 bg-orange-500 rounded-lg text-lg text-white font-bold"
               onClick={() => addToCart(id)}
             >
               +
@@ -47,7 +48,7 @@ const Card = ({ image, title, basePrice, weight, id, badge }) => {
         </div>
       ) : (
         <button
-          className="mt-5 w-full bg-orange-500 text-white py-1 rounded-lg"
+          className="mt-2 w-full px-4 bg-orange-500 text-white py-2 rounded-lg"
           onClick={() => addToCart(id)}
         >
           Выбрать

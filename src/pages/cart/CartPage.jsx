@@ -3,7 +3,7 @@ import { CardContext } from "../../context/CardChange";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { VscSend } from "react-icons/vsc";
 
-const CartPage = () => {
+const CartPage = ({ingredients}) => {
   const { cart, addToCart, removeFromCart } = useContext(CardContext);
 
   const Price = cart.reduce(
@@ -40,10 +40,12 @@ const CartPage = () => {
                 alt={item.title}
                 className="w-24 h-24 object-cover rounded-xl hover:scale-105 duration-500"
               />
-              <div>
-                <h2 className="font-bold text-lg text-orange-500">{item.title}</h2>
+             <div>
+                <h2 className="font-bold text-lg">{item.title}</h2>  {item.ingredients && (
+                 <h1 className=" italic text-sm mt-2 line-clamp-4">{item.ingredients}</h1> )}
                 <p className="text-gray-500 text-sm line-clamp-2">{item.description}</p>
-              </div>
+             </div> 
+
 
               {item.badge && (
                 <span className="absolute top-[-10px] left-[-10px] flex items-center justify-center text-xs font-bold italic bg-violet-700 text-white rounded-full w-[60px] h-[20px]">
@@ -73,7 +75,7 @@ const CartPage = () => {
           </div>
         ))}
 
-        <section className="bg-white rounded-xl px-5 py-10 flex flex-col md:flex-row items-center gap-6 mt-4 max-[600px]:max-w-[350px] max-[600px]:mx-auto">
+        <section className="bg-white rounded-xl px-5 py-10 flex flex-col md:flex-row items-center gap-6 mt-4  max-[600px]:mx-auto">
           <div>
             <h1 className="text-[18px] px-4 max-[600px]:text-[18px] font-bold">Проверьте адрес доставки</h1>
           </div>
