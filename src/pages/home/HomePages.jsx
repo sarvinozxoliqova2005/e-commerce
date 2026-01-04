@@ -57,7 +57,7 @@ const HomePages = () => {
     <div
       key={`${pro.id}-${index}`}
       className="flex-shrink-0 snap-start relative bg-white max-w-[200px] h-[200px] w-full rounded-2xl shadow-xl border-2 border-white"
-    >
+    > 
       <img
         src={pro.image}
         alt={pro.title}
@@ -74,7 +74,7 @@ const HomePages = () => {
      </section>
 
    <section>
-    <div className="container mx-auto py-[40px] bg-white rounded-xl px-5 flex items-center justify-center md:flex-row flex-col max-[700px]:max-w-[380px] max-[600px]:py-5">
+    <div className="container mx-auto py-[40px] bg-white rounded-xl px-5 flex items-center justify-center md:flex-row flex-col max-[700px]:max-w-[350px] max-[600px]:py-5">
       <div>
         <h1 className="text-[24px] max-[600px]:text-[18px] font-bold">Проверьте адрес доставки</h1>
       </div>
@@ -111,9 +111,9 @@ const HomePages = () => {
     <div className="space-y-10">
        {categories.map((el) => (
         <div key={el.id}>
-          <h1 className="text-2xl font-bold text-orange-500 mb-4 px-4">{el.title}</h1>
+          <h1 className="text-2xl font-bold text-orange-500 mb-4 px-4 max-[600px]:pl-9 ">{el.title}</h1>
 
-         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 px-4">
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 px-4 max-[600px]:max-w-[350px] max-[600px]:mx-auto">
             {products.filter((pro) => pro.categoryId === el.id) .map((p) => (
              <Card key={p.id} {...p} />
       ))}

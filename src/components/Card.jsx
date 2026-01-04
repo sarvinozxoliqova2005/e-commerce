@@ -16,7 +16,7 @@ const Card = ({ image, title, basePrice, weight, id, badge }) => {
         </span>
       )}
 
-      <h1 className="font-bold line-clamp-1 italic">{title}</h1>
+      <h1 className="font-bold line-clamp-1 italic ">{title}</h1>
 
       <div className="flex items-center justify-between mt-1">
         <p className="text-orange-500 font-bold text-lg italic">{basePrice} ₽</p>

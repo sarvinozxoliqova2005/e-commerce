@@ -6,7 +6,7 @@ import { VscSend } from "react-icons/vsc";
 const CartPage = () => {
   const { cart, addToCart, removeFromCart } = useContext(CardContext);
 
-  const totalPrice = cart.reduce(
+  const Price = cart.reduce(
     (acc, item) => acc + item.quantity * (item.price || item.basePrice || 0),
     0
   );
@@ -73,12 +73,12 @@ const CartPage = () => {
           </div>
         ))}
 
-        <section className="bg-white rounded-xl px-5 py-10 flex flex-col md:flex-row items-center gap-6 mt-4">
+        <section className="bg-white rounded-xl px-5 py-10 flex flex-col md:flex-row items-center gap-6 mt-4 max-[600px]:max-w-[350px] max-[600px]:mx-auto">
           <div>
             <h1 className="text-[18px] px-4 max-[600px]:text-[18px] font-bold">Проверьте адрес доставки</h1>
           </div>
 
-          <div className="relative w-full flex items-center gap-2 sm:gap-4 mt-2 md:mt-0 ml-6">
+          <div className="relative w-full flex items-center gap-2 sm:gap-4 mt-2 md:mt-0 ml-6 max-[600px]:ml-2">
             <FaMapMarkerAlt className="absolute left-3 top-5.5 -translate-y-1/2 text-orange-500 text-lg" />
 
             <select className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg outline-none focus:border-orange-500 text-lg cursor-pointer">
@@ -106,7 +106,7 @@ const CartPage = () => {
           </div>
 
           <div className="mt-6 w-full text-right text-xl max-[600px]:flex max-[600px]:justify-center text-orange-500 address font-bold">
-            Общая сумма: {totalPrice} ₽
+            Общая сумма: {Price} ₽
           </div>
         </section>
       </div>
