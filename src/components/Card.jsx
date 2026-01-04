@@ -16,7 +16,7 @@ const Card = ({ image, title, basePrice, weight, id, badge , ingredients }) => {
         </span>
       )}
 
-      <h1 className="font-bold line-clamp-1 ">{title}</h1>
+      <h1 className="font-bold line-clamp-1">{title}</h1>
       <h1 className="italic text-sm mt-2  ">{ingredients}</h1>
 
       <div className="flex items-center justify-between mt-1">
