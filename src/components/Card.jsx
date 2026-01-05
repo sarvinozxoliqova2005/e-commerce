@@ -7,7 +7,7 @@ const Card = ({ image, title, basePrice, weight, id, badge , ingredients }) => {
   const itemCart = cart?.find((el) => el.id === id);
 
   return (
-    <div className="snap-start relative min-w-[100%] sm:min-w-[260px] bg-white rounded-2xl shadow-lg border-2 border-white p-4  w-[200px] h-[360px] flex flex-col hover:shadow-orange-500">
+    <div className="snap-start relative min-w-[100%] w-full sm:min-w-[260px] bg-white rounded-2xl shadow-lg border-2 border-white p-4  w-[200px] h-[360px] flex flex-col hover:shadow-orange-500">
       <img src={image} alt={title} className="w-full h-40 object-contain mb-3" />
 
      {badge && (
@@ -28,14 +28,14 @@ const Card = ({ image, title, basePrice, weight, id, badge , ingredients }) => {
         <div className="flex items-center justify-between mt-2">
           <div className="flex items-center gap-1">
             <button
-              className="w-10 h-10 bg-orange-500 rounded-lg text-lg text-white font-bold"
+              className="w-10 h-10 bg-orange-500 rounded-lg text-lg text-white font-bold cursor-pointer"
               onClick={() => removeFromCart(id)}
             >
               -
             </button>
             <span className="w-10 text-center">{itemCart.quantity}</span>
             <button
-              className="w-10 h-10 bg-orange-500 rounded-lg text-lg text-white font-bold"
+              className="w-10 h-10 bg-orange-500 rounded-lg text-lg text-white font-bold cursor-pointer"
               onClick={() => addToCart(id)}
             >
               +
@@ -48,7 +48,7 @@ const Card = ({ image, title, basePrice, weight, id, badge , ingredients }) => {
         </div>
       ) : (
         <button
-          className="mt-2 w-full px-4 bg-orange-500 text-white py-2 rounded-lg"
+          className="mt-2 w-full px-4 bg-orange-500 text-white py-2 rounded-lg cursor-pointer"
           onClick={() => addToCart(id)}
         >
           Выбрать

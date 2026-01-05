@@ -97,7 +97,7 @@ const HomePages = () => {
               <option value="Choshtepa">Чоштепинский район</option>
 </select>
 <button className="bg-orange-500 text-white rounded-lg px-6 py-2 flex items-center justify-center gap-2">
-  <span className="hidden md:inline">Проверить</span>
+  <span className="hidden md:inline cursor-pointer">Проверить</span>
   <span className="inline md:hidden text-xl">
     <VscSend />
   </span>
@@ -113,7 +113,7 @@ const HomePages = () => {
         <div key={el.id}>
           <h1 className="text-2xl font-bold text-orange-500 mb-4 px-4 max-w-[1200px] mx-auto max-[600px]:pl-10">{el.title}</h1>
 
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 max-w-[1200px] mx-auto max-[600px]:max-w-[350px]">
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-3 px-4 max-w-[1200px] mx-auto max-[600px]:max-w-[350px]">
             {products.filter((pro) => pro.categoryId === el.id) .map((p) => (
              <Card key={p.id} {...p} />
       ))}
