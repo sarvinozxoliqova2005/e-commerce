@@ -7,7 +7,7 @@ const Card = ({ image, title, basePrice, weight, id, badge , ingredients }) => {
   const itemCart = cart?.find((el) => el.id === id);
 
   return (
-    <div className="snap-start relative maxn-w-[100%] sm:min-w-[260px] bg-white rounded-2xl shadow-lg border-2 border-white p-4  w-[200px] h-[360px] flex flex-col hover:shadow-orange-500">
+    <div className="snap-start relative min-w-[100%] sm:min-w-[260px] bg-white rounded-2xl shadow-lg border-2 border-white p-4  w-[200px] h-[360px] flex flex-col hover:shadow-orange-500">
       <img src={image} alt={title} className="w-full h-40 object-contain mb-3" />
 
      {badge && (
